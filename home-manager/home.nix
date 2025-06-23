@@ -2,10 +2,11 @@
 
 let
   shellModule = import ../modules/home-manager/shell.nix;
+  vimModule = import ../modules/home-manager/vim.nix;
   programsModule = import ../modules/home-manager/programs.nix;
 in
 {
-  imports = [ shellModule programsModule ];
+  imports = [ shellModule programsModule vimModule];
 
   home.username = "Venthryn";
   home.homeDirectory = "/home/Venthryn";
