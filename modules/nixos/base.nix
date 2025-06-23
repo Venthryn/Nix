@@ -46,8 +46,11 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
+    nerd-fonts.jetbrains-mono
   ];
   
+  # ----- Fonts ----- #
+
   # ----- User ----- #
   users.users.Venthryn = {
     isNormalUser = true;
