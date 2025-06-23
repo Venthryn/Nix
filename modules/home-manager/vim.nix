@@ -1,20 +1,15 @@
+{ pkgs, ... }:
 
 {
-  programs.vim = {
+  programs.helix = {
     enable = true;
-    extraConfig = ''
-      syntax on
-      set number
-      set relativenumber
-      set expandtab
-      set autoindent
-      colorscheme catppuccin-mocha
-    '';
-    plugins = with pkgs.vimPlugins; [
-      vim-nix
-      nerdtree
-      vim-airline
-      catppuccin-vim
-    ];
+    
+    # Editor settings
+    settings = {
+      theme = "catppuccin_mocha";
+      editor.line-number = "relative";
+
+    };
   };
 }
+
