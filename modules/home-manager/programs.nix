@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
@@ -8,6 +9,11 @@
     };
   };
 
+  home.packages = with pkgs; [
+    playerctl
+    tree
+  ];
+
   # ----- GUI ----- #
   programs.kitty.enable = true;
   programs.waybar.enable = true;
@@ -17,8 +23,11 @@
   # ----- CLI ----- #
   programs.bat.enable = true;
   programs.fzf.enable = true;
-  programs.htop.enable = true; 
+  programs.htop.enable = true;
 
   # ----- Home Manager ----- #
   programs.home-manager.enable = true;
+
+
+  # ----- Services ----- #
 }
