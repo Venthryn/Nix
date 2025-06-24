@@ -1,8 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  services.xserver.enable = true;
-  programs.hyprland.enable = true;
+  #services.xserver.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    
+  };
 
   environment.systemPackages = with pkgs; [
     kitty           # terminal

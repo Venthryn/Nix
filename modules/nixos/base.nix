@@ -46,10 +46,13 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
-    nerd-fonts.jetbrains-mono
+    # power-profiles-daemon
   ];
   
   # ----- Fonts ----- #
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
 
   # ----- User ----- #
   users.users.Venthryn = {
@@ -64,6 +67,7 @@
 
   # ----- System ----- #
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+ services.power-profiles-daemon.enable = true;
 
   # ----- Version ----- #
   system.stateVersion = "25.05";
