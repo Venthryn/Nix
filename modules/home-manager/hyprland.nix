@@ -1,6 +1,9 @@
 { pkgs, inputs, ... }:
 
 {
+home.packages = with pkgs; [
+  quickshell
+];
 
 
   wayland.windowManager.hyprland = {
@@ -8,6 +11,9 @@
     settings = {
       "$terminal" = "kitty";
       "$menu" = "wofi --show drun";
+      exec-once = [
+        "qs -p ~/Nix/external/quickshell/shell.qml"
+      ];
       general = {
         gaps_in = 5;
         gaps_out = 20;
