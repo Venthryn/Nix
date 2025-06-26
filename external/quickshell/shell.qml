@@ -16,8 +16,8 @@ Scope {
         PanelWindow {
             property var modelData
             screen: modelData
-            //color: "#191724"
-            color: "black"
+            color: "#191724"
+            //color: "black"
             
             anchors {
                 top: true

@@ -6,7 +6,6 @@
     
     # Editor settings
     settings = {
-      theme = "catppuccin_mocha";
       editor.line-number = "relative";
 
     };
