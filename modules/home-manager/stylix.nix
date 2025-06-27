@@ -9,6 +9,7 @@
     autoEnable = true;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    targets.helix.enable = false;
   };
 
 
