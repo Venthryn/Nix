@@ -19,11 +19,13 @@
   programs.waybar.enable = true;
   programs.rofi.enable = true;
   programs.firefox.enable = true;
+  programs.zathura.enable = true;
 
   # ----- CLI ----- #
   programs.bat.enable = true;
   programs.fzf.enable = true;
   programs.htop.enable = true;
+  programs.ranger.enable = true;
 
   # ----- Home Manager ----- #
   programs.home-manager.enable = true;
