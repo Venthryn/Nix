@@ -9,7 +9,7 @@
 
     # Editor settings
     settings = {
-      theme = "rose_pine";
+      theme = "carbonfox";
       editor = {
         cursor-shape = {
           normal = "block";
