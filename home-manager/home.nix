@@ -6,9 +6,16 @@ let
   hyprModule = import ../modules/home-manager/hyprland.nix;
   programsModule = import ../modules/home-manager/programs.nix;
   stylixModule = import ../modules/home-manager/stylix.nix;
-in
-{
-  imports = [ shellModule programsModule vimModule hyprModule stylixModule ];
+  waybarModule = import ../modules/home-manager/waybar.nix;
+in {
+  imports = [
+    shellModule
+    programsModule
+    vimModule
+    hyprModule
+    stylixModule
+    waybarModule
+  ];
 
   home.username = "Venthryn";
   home.homeDirectory = "/home/Venthryn";

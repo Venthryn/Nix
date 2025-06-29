@@ -10,6 +10,8 @@
       ll = "ls -l";
       gs = "git status";
       gl = "git log";
+      ga = "git add";
+      gc = "git commit";
     };
     oh-my-zsh = {
       enable = true;

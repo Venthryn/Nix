@@ -1,19 +1,24 @@
 { pkgs, inputs, ... }:
 
 {
-home.packages = with pkgs; [
-  quickshell
-];
+  home.packages = with pkgs; [ quickshell hyprcursor ];
 
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      ipc = "on";
+      preload = [ "/home/Venthryn/Pictures/iq9Mq0l.jpeg" ];
+      wallpaper = [ ",/home/Venthryn/Pictures/iq9Mq0l.jpeg" ];
+    };
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       "$terminal" = "kitty";
       "$menu" = "wofi --show drun";
-      exec-once = [
-        "qs -p ~/Nix/external/quickshell/shell.qml"
-      ];
+      "$browser" = "firefox";
+      exec-once = [ "waybar" "hyprpaper" ];
       general = {
         gaps_in = 5;
         gaps_out = 20;
@@ -25,9 +30,7 @@ home.packages = with pkgs; [
         rounding = 10;
         rounding_power = 2;
       };
-      animations = {
-        enabled = "yes";
-      };
+      animations = { enabled = "yes"; };
       dwindle = {
         pseudotile = true;
         preserve_split = true;
@@ -38,14 +41,13 @@ home.packages = with pkgs; [
         follow_mouse = 1;
         sensitivity = 0;
       };
-      gestures = {
-        workspace_swipe = true;
-      };
+      gestures = { workspace_swipe = true; };
       "$mod" = "SUPER";
       bind = [
         "$mod, Q, exec, $terminal"
         "$mod, C, exec, killactive"
         "$mod, R, exec, $menu"
+        "$mod, F, exec, $browser"
 
         "$mod, h, movefocus, l"
         "$mod, l, movefocus, r"
@@ -54,7 +56,7 @@ home.packages = with pkgs; [
 
       ];
       bindm = [
-        
+
       ];
       bindel = [
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
@@ -68,9 +70,7 @@ home.packages = with pkgs; [
     };
   };
 
-
   programs.kitty.enable = true;
-
 
 }
 
