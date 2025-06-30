@@ -7,6 +7,7 @@ let
   programsModule = import ../modules/home-manager/programs.nix;
   stylixModule = import ../modules/home-manager/stylix.nix;
   waybarModule = import ../modules/home-manager/waybar.nix;
+  kittyModule = import ../modules/home-manager/kitty.nix;
 in {
   imports = [
     shellModule
@@ -15,6 +16,7 @@ in {
     hyprModule
     stylixModule
     waybarModule
+    kittyModule
   ];
 
   home.username = "Venthryn";
