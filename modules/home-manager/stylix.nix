@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 
 {
   imports = [ inputs.stylix.homeManagerModules.stylix ];
@@ -26,6 +26,7 @@
       base0F = "#cb7985";
     };
     targets.helix.enable = false;
+    targets.neovim.enable = false;
   };
 
 }
