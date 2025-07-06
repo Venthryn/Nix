@@ -2,11 +2,10 @@
 
 let
   shellModule = import ../modules/home-manager/shell.nix;
-  vimModule = import ../modules/home-manager/vim.nix;
-  hyprModule = import ../modules/home-manager/hyprland.nix;
+  vimModule = import ../modules/home-manager/vim/vim.nix;
+  hyprModule = import ../modules/home-manager/hyprland;
   programsModule = import ../modules/home-manager/programs.nix;
   stylixModule = import ../modules/home-manager/stylix.nix;
-  waybarModule = import ../modules/home-manager/waybar.nix;
   kittyModule = import ../modules/home-manager/kitty.nix;
 in {
   imports = [
@@ -15,7 +14,6 @@ in {
     vimModule
     hyprModule
     stylixModule
-    waybarModule
     kittyModule
   ];
 
