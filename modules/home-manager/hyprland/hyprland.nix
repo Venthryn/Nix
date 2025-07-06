@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [ quickshell hyprcursor ];
-
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
   services.hyprpaper = {
     enable = true;
     settings = {
