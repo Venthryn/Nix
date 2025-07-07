@@ -15,28 +15,29 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, stylix, ... }@inputs:
-    let
-      inherit (nixpkgs) lib;
-    in
-    {
+    let inherit (nixpkgs) lib;
+    in {
       nixosConfigurations = {
         Laptop = lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [
-            ./nixos/configuration.nix
-          ];
+          modules = [ ./nixos/systems/laptop/configuration.nix ];
           specialArgs = { inherit inputs; };
+        };
+        Desktop = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./nixos/systems/desktop/configuration.nix ];
+          specialArgs = { inherit inputs; };
+        };
+        Server = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./nixos/systems/server/configuration.nix ];
         };
       };
 
       homeConfigurations = {
-        "Venthryn@Laptop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-          };
-          modules = [
-            ./home-manager/home.nix
-          ];
+        "Venthryn" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { system = "x86_64-linux"; };
+          modules = [ ./home-manager/home.nix ];
           extraSpecialArgs = { inherit inputs; };
         };
       };
