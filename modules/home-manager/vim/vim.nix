@@ -50,7 +50,7 @@
       -- Settings
 
       -- Theme
-      vim.cmd("colorscheme terafox")
+      vim.cmd("colorscheme carbonfox")
 
       -- Show abs line number on current line and
       -- relative number everywhere else.
