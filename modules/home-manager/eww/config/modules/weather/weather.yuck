@@ -1,0 +1,56 @@
+(defpoll weatherjson
+  :interval "15m"
+  "curl 'https://api.open-meteo.com/v1/forecast?latitude=-6.5944&longitude=106.7892&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FSingapore'"
+)
+
+(defpoll weathericon
+  :interval "2h"
+  "cat ~/.config/eww/modules/weather/weather.json"
+)
+
+(defvar daily_array "[1, 2, 3, 4, 5, 6]")
+
+(defwidget weatherCurrent []
+  (box 
+    :orientation "v"
+    :space-evenly false
+    (box 
+      :space-evenly false
+      :halign "center"
+      (label :class "weatherCurrentIcon" :text "${weathericon[weatherjson.current.is_day][weatherjson.current.weather_code].icon}")
+      (box
+        :class "weatherCurrentInfo"
+        :space-evenly false
+        :orientation "v"
+        :halign "start"
+        (label :class "weatherCurrentTemp" :halign "start" :text "${weatherjson.current.apparent_temperature}°C")
+        (label :class "weatherCurrentHumidity" :halign "start" :text "${weatherjson.current.relative_humidity_2m}% humidity")
+      )
+    )
+    (label :class "weatherCurrentWeather" :halign "center" :text "${weathericon[weatherjson.current.is_day][weatherjson.current.weather_code].text}")
+  )
+)
+
+(defwidget weatherMini [code min max]
+  (box 
+    :orientation "v"
+    :space-evenly false
+    (label :class "weatherMiniIcon" :text "${weathericon[1][code].icon}")
+    (label :class "weatherMiniTemp" :text "${min}/${max}")
+    (label :class "weatherMiniWeather" :text "${weathericon[1][code].text}")
+  )
+)
+
+(defwidget weatherDaily []
+  (box
+    :class "weatherDaily"
+    :orientation "h"
+    (for index in daily_array
+      (weatherMini 
+        :code "${weatherjson.daily.weather_code[index]}" 
+        :min "${weatherjson.daily.temperature_2m_min[index]}" 
+        :max "${weatherjson.daily.temperature_2m_max[index]}"
+      )
+    )
+  )
+)

@@ -1,0 +1,32 @@
+* {
+  //all: unset; //Unsets everything so you can style everything from scratch
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+
+$background: #161616;
+$foreground: #252525;
+$color0: #161616;
+$color1: #252525;
+$color2: #353535;
+$color3: #484848;
+// $color4: #7b7c7e;
+$color5: #f2f4f8;
+$color6: #b6b8bb;
+$base07: #e4e4e5;
+$base08: #ee5396;
+$base09: #3ddbd9;
+$base0A: #08bdba;
+$base0B: #25be6a;
+$base0C: #33b1ff;
+$color4: #78a9ff;
+$base0E: #be95ff;
+$base0F: #ff7eb6;
+
+@import "./modules/popup/popup.scss"
+@import "./modules/bar/bar.scss"
+@import "./modules/music/music.scss"
+@import "./modules/calendar/calendar.scss"
+@import "./modules/weather/weather.scss"
+@import "./modules/notification/notification.scss"
+@import "./modules/dashboard/dashboard.scss"

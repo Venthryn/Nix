@@ -1,0 +1,27 @@
+.dashboard {
+  background-color: transparent;
+}
+
+.dashboard-widget {
+  background-color: $background;
+  border-radius: 16px;
+  margin: 8;
+  padding: 16;
+  &.dashboard-music {
+    padding: 0;
+  }
+}
+
+.dashboard-weather .weatherDaily {
+  margin : 16 0 0 0;
+}
+
+.dashboard-music {
+  border-radius: 16px;
+}
+
+.dashboard-calendar {
+  padding: 16;
+}
+
+

@@ -1,0 +1,100 @@
+(deflisten listen-music :initial ""
+  "playerctl --follow metadata --format '{ \"title\" : \"{{ title }}\", \"artist\" : \"{{ artist }}\", \"album\" : \"{{ album }}\", \"position\" :{ \"real\" : \"{{ position }}\", \"time\" : \"{{ duration(position) }}\" }, \"duration\" : { \"real\" : \"{{ mpris:length}}\", \"time\" : \"{{ duration(mpris:length) }}\" }, \"status\" : \"{{ status }}\", \"albumart\" : \"{{ mpris:artUrl }}\"}'")
+
+(defwidget bar-music []
+  (box 
+    :class "bar-music"
+    :orientation "h"
+    :space-evenly false   
+    :halign "center"
+    (eventbox 
+      :cursor "pointer"
+      (button
+        :class "bar-music-button"
+        :onclick "(eww close music-popup && eww close music-popup-closer ) || (eww open music-popup-closer && eww open music-popup)"
+    {listen-music != "" ? "${listen-music.artist != "" ? "${strlength(listen-music.artist) > 39 ? "${substring(listen-music.artist, 0, 38)}..." : listen-music.artist} - " : "" }${strlength(listen-music.title) > 39 ? "${substring(listen-music.title, 0, 38)}..." : listen-music.title }" : "Nothing to Play"}
+      )
+    )
+  )
+)
+
+(defwidget music []
+  (box 
+    :class "music-container"
+    :orientation "h"
+    :space-evenly false
+    (box
+      :class "music-art"
+      :space-evenly false
+      :style "background-image: url('${(listen-music != "" && listen-music.albumart != "") ? replace(listen-music.albumart, "file://", "") : "/home/lluth/.config/eww/modules/music/music.png"}')"
+      
+
+      (box
+        :class "music-info"
+        :orientation "v"
+        :space-evenly false
+        :valign "center"
+        :width 600
+        
+        
+        (label 
+          :text "${listen-music.title}"
+          :class "music-title"
+          :halign "start"
+        )
+        (label 
+          :text "${listen-music.artist}"
+          :class "music-artist"
+          :halign "start"
+        )
+        (label 
+          :text "${listen-music.album}"
+          :class "music-album"
+          :halign "start"
+        )
+        (box
+          :class "music-progress"
+          :space-evenly false
+          :orientation "v"
+          (box
+            :class "music-progressbar-container"
+            :space-evenly false
+            :halign "center"
+            {listen-music.position.time}
+            (scale
+              :class "music-progressbar"
+              :value "${round(listen-music.position.real/1000000, 0)}"
+              :max "${round(listen-music.duration.real/1000000, 0)}"
+              :width 480
+              :onchange "playerctl position {}"
+              :active true
+            )
+            {listen-music.duration.time}
+          )
+        )
+      )
+    )
+    (box 
+      :class "music-buttons"
+      :space-evenly false
+      :valign "center"
+      :halign "center"
+      :orientation "v"
+      (button
+        :onclick "playerctl previous"
+        :class "music-button"
+        ""
+      )
+      (button
+        :onclick "playerctl play-pause"
+        :class "music-button"
+        { "${listen-music}" != "" ? "${listen-music.status == "Playing" ? "" : ""}" : ""  }
+      )
+      (button
+        :onclick "playerctl next"
+        :class "music-button"
+        ""
+      )
+    )
+  )
+)

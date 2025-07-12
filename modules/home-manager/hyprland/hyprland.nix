@@ -1,14 +1,14 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ quickshell hyprcursor ];
+  home.packages = with pkgs; [ quickshell hyprcursor pywal socat tofi rofi mako gradience wl-clipboard cliphist wlogout jq pamixer ];
   home.sessionVariables.NIXOS_OZONE_WL = "1";
   services.hyprpaper = {
     enable = true;
     settings = {
       ipc = "on";
-      preload = [ "/home/Venthryn/Pictures/iq9Mq0l.jpeg" ];
-      wallpaper = [ ",/home/Venthryn/Pictures/iq9Mq0l.jpeg" ];
+      preload = [ "/home/Venthryn/Nix/modules/home-manager/hyprland/wallpaper.jpg" ];
+      wallpaper = [ ",/home/Venthryn/Nix/modules/home-manager/hyprland/wallpaper.jpg" ];
     };
   };
 
@@ -18,7 +18,7 @@
       "$terminal" = "kitty";
       "$menu" = "wofi --show drun";
       "$browser" = "firefox";
-      exec-once = [ "waybar" "hyprpaper" ];
+      exec-once = [ "eww open bar" "hyprpaper" ];
       general = {
         gaps_in = 5;
         gaps_out = 20;

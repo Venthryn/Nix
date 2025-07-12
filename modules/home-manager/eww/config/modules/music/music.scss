@@ -1,0 +1,95 @@
+.music-container {
+  padding: 8px;
+  background-color: $background;
+  border-radius: 16px;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: $color5;
+  }
+}
+
+.bar-music-button {
+  background-color: $background;
+  margin: 4px;
+  padding: 0 16px;
+  border-radius: 99;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: $color5;
+  }
+}
+
+.music-art {
+  border-radius: 16px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 22rem;
+}
+
+.music-info {
+  padding: 16px 16px 0 16px;
+  border-radius: 16px;
+  background-color: rgba($background, 0.8);
+}
+
+.music-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.music-title, .music-artist, .music-album {
+ margin : 4 0;
+}
+
+.music-progress {
+  margin: 32 0 0 0;
+}
+
+.music-progressbar {
+  all: unset;
+  
+  border-radius: 99px;
+  border-style: solid;
+  border-color: $foreground;
+  border-width: 0px;
+  padding: 0;
+  margin: 16;
+
+  & trough {
+    box-shadow: 0 0 0 0 $foreground;
+    border-radius: 99px;
+    background-color: rgba($foreground, 0.4);
+  }
+
+  & trough slider {
+    box-shadow: 0 0 0 0 $foreground;
+    background-color: transparent;
+    border-radius: 99px;
+  }
+
+  & trough highlight {
+    background-color: $foreground;
+    border-radius: 99px;
+    border-style: solid;
+    border-color: $foreground;
+    border-width: 4px;
+  }
+}
+
+.music-button {
+  border-radius: 99;
+  background-color: transparent;
+  color: $foreground;
+  font-size: 24px;
+  &:hover {
+    background-color: $color5;
+  }
+  margin: 0 8px;
+  padding: 4px 10px;
+  border-radius: 99;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: $color5;
+  }
+}

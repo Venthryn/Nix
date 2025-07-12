@@ -1,0 +1,56 @@
+(defpoll notificationjson
+  :interval "10s"
+  "makoctl history"
+)
+
+(defwidget notification []
+  (box
+    :orientation "v"
+    :width "400"
+    :class "notification"
+    (scroll
+      :vscroll true
+      (box
+        :orientation "v"
+        (for item in "${notificationjson.data[0]}"
+          (notification-item
+            :app "${item.app-name}"
+            :summary "${item.summary}"
+            :body "${item.body}"
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget notification-item [app summary body]
+  (box
+    :class "notification-item"
+    :space-evenly false
+    (box 
+      :class "notification-item-bar"
+      :width 4
+    )
+  
+    (box
+      :class "notification-item-info"
+      :orientation "v"
+      (label 
+        :class "notification-item-apps" 
+        :halign "start" 
+        :wrap true 
+        :text "${app.data}")
+      (label 
+        :class "notification-item-summary" 
+        :halign "start" 
+        :wrap true
+        :text "${summary.data}")
+      (label 
+        :class "notification-item-body"  
+        :halign "start" 
+        :wrap true 
+        :text "${body.data}")
+    )
+  )
+)

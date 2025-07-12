@@ -1,0 +1,48 @@
+
+(defwindow dashboard
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :anchor "center")
+  (box
+    :space-evenly false
+    (dashboard-notification)
+    (box
+      :orientation "v"
+      :space-evenly false
+      (dashboard-weather)
+      (dashboard-music)
+    )
+    (dashboard-calendar)
+  )
+)
+
+(defwidget dashboard-weather []
+  (box
+    :class "dashboard-weather dashboard-widget"
+    :orientation "v"
+    :space-evenly false
+    (weatherCurrent)
+    (weatherDaily)
+  )
+)
+
+(defwidget dashboard-music []
+  (box
+    :class "dashboard-music dashboard-widget"
+    :orientation "v"
+    (music)
+  )
+)
+
+(defwidget dashboard-calendar []
+  (box
+    :class "dashboard-calendar dashboard-widget"
+    :orientation "v"
+    (calendar-widget)
+  )
+)
+
+(defwidget dashboard-notification []
+  (notification)
+)

@@ -1,0 +1,23 @@
+.notification {
+  background-color: $background;
+  border-radius: 16px;
+  padding: 16;
+  margin: 8;
+}
+
+.notification-item-bar {
+  background-color: $color4;
+  border-radius: 16px;
+}
+
+.notification-item {
+  margin: 16;
+}
+
+.notification-item-info {
+  margin: 0 0 0 16;
+}
+.notification-item-apps {
+  font-size: 14;
+  color: $color5;
+}

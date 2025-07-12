@@ -1,0 +1,24 @@
+(deflisten workspaces :initial "[]" "sh ~/.config/eww/modules/bar/hyprland/get-workspaces")
+(deflisten current_workspace :initial "..." "sh ~/.config/eww/modules/bar/hyprland/get-active-workspace")
+(deflisten urgent_workspace :initial "..." "sh ~/.config/eww/modules/bar/hyprland/get-urgent-workspace")
+(defwidget bar-workspaces []
+  (eventbox :onscroll "sh ~/.config/eww/modules/bar/hyprland/change-active-workspace" :class "bar-workspaces"
+    (box 
+      :space-evenly false
+      :class "bar-workspaces-inner"
+      (label :text "${workspaces}${current_workspace}${urgent_workspace}" :visible false)
+      (for workspace in workspaces
+        (eventbox 
+          :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (eventbox :class "bar-workspace-entry ${workspace.id == urgent_workspace ? "urgent" : ""} ${workspace.windows > 0 ? "occupied" : "empty" } ${workspace.id == current_workspace ? "current" : ""} ${workspace.id == current_workspace - 1 ? "left" : ""} ${workspace.id == current_workspace + 1 ? "right" : ""} ${workspace.id == 1 ? "first" : ""} ${workspace.id == arraylength(workspaces) ? "last" : ""}"
+            (box 
+              :class "bar-workspace-entry-inner"
+              (label :text "${substring("", workspace.id - 1,  1 )}")
+            )
+          )
+        )
+      )
+    )
+  )
+)
+

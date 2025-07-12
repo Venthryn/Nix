@@ -1,0 +1,69 @@
+(defwidget closer [window]
+  (eventbox
+    :class "bg-transparent"
+    :onclick "eww close ${window} && eww close ${window}-closer"))
+
+(defwindow music-popup []
+  :class "bg-transparent"
+  :monitor 0
+  :windowtype "toolbar"
+  :geometry (
+    geometry 
+      :x 0
+      :y "3%"
+      :height 160
+      :width 640
+      :anchor "top center"
+  )
+  (music)
+)
+ 
+(defwindow music-popup-closer
+  :monitor 0
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  :focusable false
+  :class "bg-transparent"
+  (closer :window "music-popup")
+)
+
+(defwindow calendar-popup []
+  :class "bg-transparent"
+  :monitor 0
+  :windowtype "toolbar"
+  :geometry (
+    geometry 
+      :x "5%"
+      :y "3%"
+      :height 160
+      :width 320
+      :anchor "top right"
+  )
+  (box
+    :class "calendar-popup"
+    :orientation "v"
+    :width 160
+    :space-evenly false
+    (calendar-widget)
+    (weatherCurrent)
+  )
+)
+
+(defwindow calendar-popup-closer []
+  :monitor 0
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  :focusable false
+  :class "bg-transparent"
+  (closer :window "calendar-popup")
+)
+
+(defwindow dashboard-closer []
+  :monitor 0
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  :focusable false
+  :class "bg-transparent"
+  (closer :window "dashboard")
+)
+

@@ -1,0 +1,10 @@
+(defwidget calendar-widget []
+  (box 
+    :valign "center"
+    :halign "center"
+    (calendar
+      :width 240
+      :class "calendar"
+    )
+  )
+)

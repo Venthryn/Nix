@@ -1,0 +1,24 @@
+.music-popup-closer {
+  background-color: transparent;
+}
+
+.calendar-popup-closer {
+  background-color: transparent;
+}
+
+.dashboard-closer {
+  background-color: transparent;
+}
+
+.calendar-popup {
+  padding: 16;
+  border-radius: 16px;
+}
+
+.music-popup {
+  background-color : transparent;
+  border-width: 0px;
+  border-style: solid;
+  border-color: $color4;
+  border-radius: 16px;
+}

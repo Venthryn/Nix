@@ -1,0 +1,8 @@
+(include "./modules/bar/bar.yuck")
+(include "./modules/music/music.yuck")
+(include "./modules/calendar/calendar.yuck")
+(include "./modules/weather/weather.yuck")
+(include "./modules/dashboard/dashboard.yuck")
+(include "./modules/notification/notification.yuck")
+
+(include "./modules/popup/popup.yuck")

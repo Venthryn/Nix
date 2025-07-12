@@ -1,0 +1,147 @@
+(include "./modules/bar/hyprland/workspaces.yuck")
+
+(defwidget bar []
+  (centerbox 
+    :orientation "h"
+    :space-evenly false
+    (bar-left-corner)
+    (bar-center-part)
+    (bar-right-corner)
+  )
+)
+
+(defwidget bar-left-corner []
+  (box 
+    :orientation "h"
+    :class "bar-left"
+    :halign "start"
+    :space-evenly false
+    (bar-logo-workspaces)
+    (box 
+      :orientation "h"
+      :class "bar-systray"
+      (systray 
+        :spacing "4px"
+        :orientation "h"
+      )
+    )
+  )
+)
+
+(defwidget bar-center-part []
+  (box 
+    :orientation "h"
+    :space-evenly false
+    (bar-music)
+  )
+)
+
+
+(defwidget bar-right-corner []
+  (box 
+    :orientation "h"
+    :halign "end"
+    :space-evenly false
+    (bar-memory)
+    (bar-cpu)
+    (bar-battery)
+    (bar-time-power)
+  )
+)
+
+(defwidget bar-logo-workspaces []
+  (eventbox 
+    :class "bar-logo-workspaces"
+    :halign "start"
+    :cursor "pointer"
+    (box
+      :class "bar-logo-workspaces-inner"
+      :space-evenly false
+      (bar-logo)
+      (bar-workspaces)
+    )
+  )
+)
+
+(defwidget bar-logo []
+  (box 
+    :class "bar-logo"
+    :halign "start"
+    (button
+      :onclick "( eww close dashboard && eww close dashboard-closer ) ||( eww open dashboard-closer &&eww open dashboard )" 
+      :timeout 20000
+      (label :text "")
+    )
+  )
+)
+
+(defwidget bar-time-power []
+  (eventbox :halign "end"
+    :class "bar-battery-power"
+    :cursor "pointer"
+    (box 
+      :class "bar-battery-power-inner"
+      :space-evenly false
+      (bar-time)
+      (bar-power)
+    )
+  )
+)
+
+(defwidget bar-memory []
+  (box :class "bar-memory"
+    (label :text "${round(EWW_RAM.used_mem_perc,0)}%  ")
+  )
+)
+
+(defwidget bar-cpu []
+  (box :class "bar-cpu"
+    (label :text "${round(EWW_CPU.avg,0)}%  ")
+  )
+)
+
+(defwidget bar-network []
+  (box :class "bar-network"
+    (label :text "${round(EWW_NET.wlp2s0.NET_DOWN,0)}  ${round(EWW_NET.wlp2s0.NET_UP,0)}  ")
+  )
+)
+
+(defwidget bar-battery []
+  (box :class "bar-battery ${EWW_BATTERY.BAT0.capacity < 21 ? "lowbat" : ""}"
+    (label :text "${EWW_BATTERY.BAT0.capacity}% ${EWW_BATTERY.BAT0.status == 'Charging' ? "󱐋" : "󰁹"}")
+  )
+)
+
+(defwidget bar-time [] 
+  (eventbox 
+    :onclick "( eww close calendar-popup && eww close calendar-popup-closer ) || ( eww open calendar-popup-closer && eww open calendar-popup )"
+    (box 
+      :class "bar-time"
+      (label 
+        :text "${formattime(EWW_TIME, '%a %b %d - %R')}"
+      )
+    )
+  )
+)
+
+(defwidget bar-power []
+  (box 
+    :class "bar-power"
+    (button
+      :onclick "wlogout" 
+      :timeout 10000
+      (label :text " ")
+    )
+  )
+)
+
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "90%"
+                      :height "10px"
+                      :anchor "top center")
+  :exclusive true
+  (bar))

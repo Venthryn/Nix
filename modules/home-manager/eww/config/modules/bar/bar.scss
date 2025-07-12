@@ -1,0 +1,150 @@
+.bar {
+  background-color: $background;
+  color: #b0b4bc;
+  border-radius: 0 0 100 100px;
+}
+
+.bar-logo-workspaces {
+  background-color: $color4;
+  border-radius: 0 24px 24px 24px;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: $color5;
+  }
+}
+
+.bar-logo-workspaces-inner {
+  padding: 4px;
+}
+
+.bar-logo button {
+  padding: 6px 16px;
+  margin: 0;
+  background-color: transparent;
+  color: $background;
+}
+
+.bar-workspaces {
+  border-radius: 100px;
+  background: transparent;
+}
+
+.bar-workspaces-inner {
+  border-radius: 100;
+}
+
+.bar-workspace-entry {
+  transition: color 0.2s ease-in-out;
+  background-color: $background;
+  margin: 0;
+  &.empty label {
+    opacity: 0.4;
+  }
+  &.first {
+    border-radius: 99 0 0 99;
+  }
+  &.last {
+    border-radius: 0 99 99 0;
+  }
+  &.left {
+    border-radius: 0 99 99 0;
+  }
+  &.right {
+    border-radius: 99 0 0 99;
+  }
+  &.first.left {
+    border-radius: 99;
+  }
+  &.last.right {
+    border-radius: 99;
+  }
+  &.current {
+    color: $background;
+    background-color:transparent;
+    border-radius: 99;
+    & label {
+        opacity: 1;
+    }
+
+  }
+  &:hover:not(.current) {
+    color: $color5;
+    opacity: 1;
+  }
+}
+
+.bar-workspace-entry-inner {
+  padding: 0 16px;
+  transition: background-color 0.2s ease-in-out;
+  
+}
+
+.bar-workspace-entry label {
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
+}
+.bar-workspace-entry label:hover {
+  background-color: $color5;
+}
+
+.bar-systray {
+  margin: 0 16px;
+}
+
+.bar-music {
+  margin: 0 16px;
+}
+
+.bar-battery-power {
+  background-color: $color4;
+  border-radius: 24px 0px 24px 24px;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: $color5;
+  }
+}
+
+.bar-time {
+  background-color: $background;
+  margin: 4px;
+  padding: 0 16px;
+  border-radius: 99;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: $color5;
+  }
+}
+
+.bar-battery, .bar-cpu, .bar-memory, .bar-network {
+  margin: 0 16 0 0;
+}
+
+.bar-battery.lowbat {
+  animation-name: lowbat;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.bar-power button {
+  background-color:transparent;
+  padding: 0px 16px;
+  margin: 0;
+  color: $background;  
+}
+
+// animation 
+@keyframes lowbat {
+  0% {
+    color: $foreground;
+  }
+  50% {
+    color: #ee4444;
+  }
+  100% {
+    color: $foreground;
+  }
+}
+

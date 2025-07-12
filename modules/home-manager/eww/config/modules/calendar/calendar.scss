@@ -1,0 +1,34 @@
+.cal-box {
+  font-weight: Bold;
+  border-radius: 16px;
+}
+
+.calendar {
+  all: unset;
+  padding: 8 0;
+  border-radius: 16px;
+  background-color: transparent;
+  color: $foreground;
+  border-width: 0;
+  font-size: 14;
+  &:selected {
+    background-color: transparent;
+    color: $color5;
+  }
+  &.header {
+    color: $color5;
+    font-weight: bolder;
+  }
+  &.button {
+    color: $foreground;
+  }
+  &.highlight {
+    color: $color4;
+    font-weight: bolder;
+  }
+  &:indeterminate {
+  color: rgba($foreground, 0.5);
+  }
+}
+  
+
