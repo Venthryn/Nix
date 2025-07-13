@@ -27,6 +27,11 @@
     };
     targets.helix.enable = false;
     targets.neovim.enable = false;
+    cursor = {
+      package = pkgs.graphite-cursors;
+      name = "graphite-dark";
+      size = 100;
+    };
   };
 
 }
