@@ -6,8 +6,10 @@ let
   hyprModule = import ../modules/home-manager/hyprland;
   programsModule = import ../modules/home-manager/programs.nix;
   stylixModule = import ../modules/home-manager/stylix.nix;
+  steamModule = import ../modules/home-manager/steam.nix;
   kittyModule = import ../modules/home-manager/kitty.nix;
   ewwModule = import ../modules/home-manager/eww;
+  jetbrainsModule = import ../modules/home-manager/jetbrains.nix;
 in {
   imports = [
     shellModule
@@ -15,8 +17,10 @@ in {
     vimModule
     hyprModule
     stylixModule
+    steamModule
     kittyModule
     ewwModule
+    jetbrainsModule
   ];
 
   home.username = "Venthryn";
