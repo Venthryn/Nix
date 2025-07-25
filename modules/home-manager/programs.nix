@@ -14,7 +14,7 @@
     allowUnfree = true;
   };
 
-  home.packages = with pkgs; [ playerctl tree ];
+  home.packages = with pkgs; [ playerctl tree discord zulu17 dconf jetbrains-toolbox ];
 
   # ----- GUI ----- #
   programs.wofi.enable = true;

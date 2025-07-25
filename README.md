@@ -4,33 +4,33 @@ This repo contains the configuration of my 3 primary computers.
 
 
 ## Folder structure
-.
-├── flake.lock
-├── flake.nix
-├── home-manager
-│   └── home.nix
-├── modules
-│   ├── home-manager
-│   │   ├── eww/
-│   │   ├── hyprland/
-│   │   ├── kitty.nix
-│   │   ├── programs.nix
-│   │   ├── shell.nix
-│   │   ├── stylix.nix
-│   │   └── vim/
-│   └── nixos
-│       ├── base.nix
-│       ├── bluetooth.nix
-│       ├── hyprland.nix
-│       └── shell.nix
-├── nixos
-│   └── systems
-│       ├── desktop
-│       │   ├── configuration.nix
-│       │   └── hardware-configuration.nix
-│       └── laptop
-│           ├── configuration.nix
-│           └── hardware-configuration.nix
+. \
+├── flake.lock \
+├── flake.nix \
+├── home-manager \
+│   └── home.nix \
+├── modules \
+│   ├── home-manager \
+│   │   ├── eww/ \
+│   │   ├── hyprland/ \
+│   │   ├── kitty.nix \
+│   │   ├── programs.nix \
+│   │   ├── shell.nix \
+│   │   ├── stylix.nix \
+│   │   └── vim/ \
+│   └── nixos \
+│       ├── base.nix \
+│       ├── bluetooth.nix \
+│       ├── hyprland.nix \
+│       └── shell.nix \
+├── nixos \
+│   └── systems \
+│       ├── desktop \
+│       │   ├── configuration.nix \
+│       │   └── hardware-configuration.nix \
+│       └── laptop \
+│           ├── configuration.nix \
+│           └── hardware-configuration.nix \
 └── README.md
 
 ## Info
