@@ -12,9 +12,14 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, stylix, plasma-manager, ... }@inputs:
     let inherit (nixpkgs) lib;
     in {
       nixosConfigurations = {

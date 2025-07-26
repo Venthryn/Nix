@@ -7,7 +7,6 @@
     ../../../modules/nixos/plasma.nix
     ../../../modules/nixos/bluetooth.nix
     ../../../modules/nixos/nvidia.nix
-    ../../../modules/home-manager/unreal.nix
   ];
 
   networking.hostName = "Laptop";

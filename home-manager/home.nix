@@ -1,4 +1,3 @@
-{ config, pkgs, ... }:
 
 let
   shellModule = import ../modules/home-manager/shell.nix;
@@ -7,6 +6,7 @@ let
   kittyModule = import ../modules/home-manager/kitty.nix;
   ewwModule = import ../modules/home-manager/eww;
   jetbrainsModule = import ../modules/home-manager/jetbrains.nix;
+  plasmaModule = import ../modules/home-manager/plasma.nix;
 in {
   imports = [
     shellModule
@@ -15,6 +15,7 @@ in {
     kittyModule
     ewwModule
     jetbrainsModule
+    plasmaModule
   ];
 
   home.username = "Venthryn";
