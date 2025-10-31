@@ -47,7 +47,9 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
-    # power-profiles-daemon
+    git
+    vim
+    home-manager
   ];
   
   # ----- Fonts ----- #
@@ -68,7 +70,7 @@
 
   # ----- System ----- #
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
- services.power-profiles-daemon.enable = true;
+  services.power-profiles-daemon.enable = true;
 
   # ----- Version ----- #
   system.stateVersion = "25.05";

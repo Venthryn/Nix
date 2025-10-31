@@ -25,24 +25,24 @@
       nixosConfigurations = {
         Laptop = lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./nixos/systems/laptop/configuration.nix ];
+          modules = [ ./nixos/systems/Laptop/configuration.nix ];
           specialArgs = { inherit inputs; };
         };
         Desktop = lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./nixos/systems/desktop/configuration.nix ];
+          modules = [ ./nixos/systems/Desktop/configuration.nix ];
           specialArgs = { inherit inputs; };
         };
         Server = lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./nixos/systems/server/configuration.nix ];
+          modules = [ ./nixos/systems/Server/configuration.nix ];
         };
       };
 
       homeConfigurations = {
         "Venthryn" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs { system = "x86_64-linux"; };
-          modules = [ ./home-manager/home.nix ];
+          modules = [ ./home-manager/users/Venthryn/configuration.nix ];
           extraSpecialArgs = { inherit inputs; };
         };
       };
