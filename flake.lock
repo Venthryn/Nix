@@ -299,6 +299,21 @@
         "type": "github"
       }
     },
+    "nvimConfig": {
+      "locked": {
+        "lastModified": 1761927303,
+        "narHash": "sha256-YL2DfogC195t8iN0L+FiNKE20Ii3AtJEGoZzc6dyWgk=",
+        "ref": "refs/heads/main",
+        "rev": "11f456ba9ab54ae08e4db4b321695970fe21b3e9",
+        "revCount": 3,
+        "type": "git",
+        "url": "ssh://git@github.com/venthryn/vim"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/venthryn/vim"
+      }
+    },
     "plasma-manager": {
       "inputs": {
         "home-manager": [
@@ -327,6 +342,7 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
+        "nvimConfig": "nvimConfig",
         "plasma-manager": "plasma-manager",
         "stylix": "stylix"
       }

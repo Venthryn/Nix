@@ -1,10 +1,10 @@
 {
   imports = [
     ../../../modules/home-manager/shell.nix
-    ../../../modules/home-manager/vim/vim.nix
     ../../../modules/home-manager/programs.nix
     ../../../modules/home-manager/kitty.nix
     ../../../modules/home-manager/plasma.nix
+    ../../../modules/home-manager/vim.nix
   ];
 
   home.username = "Venthryn";

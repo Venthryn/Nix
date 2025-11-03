@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+
+    nvimConfig.url = "git+ssh://git@github.com/venthryn/vim";
+
+
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,9 +22,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, stylix, plasma-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, stylix, plasma-manager, nvimConfig, ... }@inputs:
     let inherit (nixpkgs) lib;
     in {
       nixosConfigurations = {
