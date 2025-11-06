@@ -27,4 +27,26 @@ in {
       iconTheme = "Tela";
     };
   };
+
+  programs.kate = {
+    enable = true;
+
+    editor = {
+      inputMode = "vi";
+      tabWidth = 2;
+      brackets = {
+        highlightMatching = true;
+      };
+      font = {
+        family = "JetBrainsMono Nerd Font Mono";
+        pointSize = 12;
+      };
+      indent = {
+        autodetect = true;
+        showLines = true;
+        undoByShiftTab = true;
+        width = 2;
+      };
+    };
+  };
 }
