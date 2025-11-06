@@ -5,6 +5,9 @@
     enable = true;
     initExtra = ''
       eval "$(pay-respects zsh)"
+      if [[ -n "$FLAKE_NAME" ]]; then
+        RPROMPT="%F{blue}[ 󱄅 $FLAKE_NAME ]%f"
+      fi
     '';
     shellAliases = {
       ll = "ls -l";

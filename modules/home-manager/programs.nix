@@ -14,19 +14,69 @@
     allowUnfree = true;
   };
 
-  home.packages = with pkgs; [ playerctl tree discord zulu17 dconf ];
+  home.packages = with pkgs; [ playerctl tree discord zulu17 dconf nix-ld prismlauncher python313Packages.python-lsp-server steam ];
+
+
+
+
 
   # ----- GUI ----- #
-  programs.wofi.enable = true;
   programs.firefox.enable = true;
-  programs.zathura.enable = true;
+
+  programs.zathura = {
+    enable = true;
+    extraConfig = ''
+      set default-fg                rgba(205,214,244,1)
+      set default-bg                rgba(30,30,46,1)
+
+      set completion-bg             rgba(49,50,68,1)
+      set completion-fg             rgba(205,214,244,1)
+      set completion-highlight-bg   rgba(203,166,247,1)
+      set completion-highlight-fg   rgba(30,30,46,1)
+      set completion-group-bg       rgba(24,24,37,1)
+      set completion-group-fg       rgba(205,214,244,1)
+
+      set statusbar-fg              rgba(205,214,244,1)
+      set statusbar-bg              rgba(17,17,27,1)
+      set inputbar-fg               rgba(205,214,244,1)
+      set inputbar-bg               rgba(30,30,46,1)
+
+      set notification-bg           rgba(30,30,46,1)
+      set notification-fg           rgba(205,214,244,1)
+      set notification-error-bg     rgba(30,30,46,1)
+      set notification-error-fg     rgba(243,139,168,1)
+      set notification-warning-bg   rgba(30,30,46,1)
+      set notification-warning-fg   rgba(249,226,175,1)
+
+      set recolor                   "true"
+      set recolor-lightcolor        rgba(30,30,46,1)
+      set recolor-darkcolor         rgba(205,214,244,1)
+
+      set index-fg                  rgba(205,214,244,1)
+      set index-bg                  rgba(30,30,46,1)
+      set index-active-fg           rgba(205,214,244,1)
+      set index-active-bg           rgba(49,50,68,1)
+
+      set render-loading-bg         rgba(30,30,46,1)
+      set render-loading-fg         rgba(205,214,244,1)
+
+      set highlight-color           rgba(147,153,178,0.3)
+      set highlight-fg              rgba(205,214,244,1)
+      set highlight-active-color    rgba(203,166,247,0.3)
+      
+    '';
+  };
+
+
   programs.obsidian.enable = true;
+  programs.lutris.enable = true;
 
   # ----- CLI ----- #
   programs.bat.enable = true;
   programs.fzf.enable = true;
   programs.htop.enable = true;
   programs.ranger.enable = true;
+  programs.tmux.enable = true;
 
   # ----- Home Manager ----- #
   programs.home-manager.enable = true;
