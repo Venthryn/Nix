@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: Documents
+spec:
+  containers:
+    - name: paperless
+      image: docker.io/paperlessngx/paperless-ngx:latest
+      ports:
+        - containerPort: 8000
+          hostPort: 8000
+      volumeMounts:
+        - mountPath: /usr/src/paperless/consume
+          name: paperless-consume
+        - mountPath: /usr/src/paperless/data
+          name: paperless-data
+        - mountPath: /usr/src/paperless/export
+          name: paperless-export
+        - mountPath: /usr/src/paperless/media
+          name: paperless-media
+    - name: redis
+      image: docker.io/library/redis:latest
+      args: [ "redis-server" ]
+      ports:
+        - containerPort: 6379
+      volumeMounts:
+        - mountPath: /data
+          name: redis-data
+  volumes:
+    - name: paperless-consume
+      hostPath:
+        path: /data/Documents/paperless/consume
+        type: DirectoryOrCreate
+    - name: paperless-data
+      hostPath:
+        path: /data/Documents/paperless/data
+        type: DirectoryOrCreate
+    - name: paperless-export
+      hostPath:
+        path: /data/Documents/paperless/export
+        type: DirectoryOrCreate
+    - name: paperless-media
+      hostPath:
+        path: /data/Documents/paperless/media
+        type: DirectoryOrCreate
+    - name: redis-data
+      hostPath:
+        path: /data/Documents/redis/data
+        type: DirectoryOrCreate
+
+
+
