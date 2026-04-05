@@ -27,7 +27,6 @@
       bind = let
         hyprlock = lib.getExe config.programs.hyprlock.package;
       in [
-        "SUPER,l,exec,${hyprlock} --immediate"
         ",XF86LogOff,exec,${hyprlock} --immediate"
       ];
     };

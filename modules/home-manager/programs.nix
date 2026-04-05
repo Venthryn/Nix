@@ -1,11 +1,13 @@
 { pkgs, ... }: {
   programs.git = {
     enable = true;
-    userName = "Bailey Vogt";
-    userEmail = "s3906263@student.rmit.edu.au";
-    extraConfig = { 
+    settings = { 
       init.defaultBranch = "main"; 
       credential.helper = "store";
+      user = {
+        name = "Bailey Vogt";
+        email = "s3906263@student.rmit.edu.au";
+      };
     };
   };
 
@@ -14,11 +16,7 @@
     allowUnfree = true;
   };
 
-  home.packages = with pkgs; [ playerctl tree discord zulu17 dconf nix-ld prismlauncher python313Packages.python-lsp-server steam ];
-
-
-
-
+  home.packages = with pkgs; [ playerctl tree discord zulu17 dconf nix-ld prismlauncher steam steam-run blender obsidian mpv amberol gnome-weather valent ];
 
   # ----- GUI ----- #
   programs.firefox.enable = true;
@@ -68,14 +66,14 @@
   };
 
 
-  programs.obsidian.enable = true;
   programs.lutris.enable = true;
+
 
   # ----- CLI ----- #
   programs.bat.enable = true;
   programs.fzf.enable = true;
   programs.htop.enable = true;
-  programs.ranger.enable = true;
+  programs.yazi.enable = true;
   programs.tmux.enable = true;
 
   # ----- Home Manager ----- #

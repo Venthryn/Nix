@@ -10,10 +10,19 @@ let
 in {
 
   imports = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "qtwebkit-5.212.0-alpha4"
+  ];
+
   home.packages = with pkgs; [ 
     graphite-cursors
     tela-icon-theme
     catppuccinKdeMocha
+    kdePackages.calligra
+    kdePackages.krdc
+    kdePackages.plasma-browser-integration
+    kdePackages.marknote
   ];
 
 

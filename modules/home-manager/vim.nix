@@ -2,6 +2,7 @@
 
 
   home.packages = with pkgs; [
+    gcc
     clang-tools
     jdt-language-server
     lua-language-server

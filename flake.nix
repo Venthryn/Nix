@@ -7,7 +7,10 @@
 
     nvimConfig.url = "github:Venthryn/Vim";
 
-
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -25,7 +28,7 @@
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, stylix, plasma-manager, nvimConfig, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, dms, stylix, plasma-manager, nvimConfig, ... }@inputs:
     let inherit (nixpkgs) lib;
     in {
       nixosConfigurations = {

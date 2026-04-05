@@ -1,9 +1,9 @@
+
 { config, pkgs, ... }:
 
 {
-  programs.hyprland = {
+  programs.miracle-wm = {
     enable = true;
-    withUWSM = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -14,18 +14,15 @@
     waybar          # status bar
     pywal           # status bar colour helper
     wofi            # app launcher
-    hyprpaper       # wallpaper
-    hyprpicker
+    swaybg          # wallpaper
+    slurp           # colour picker
+    grim            # screenshot
+    swaylock-effects# screen locker
+    swayidle        # inactivity monitor
     firefox         # browser
     amberol         # music player
-
-
   ];
-  programs.ags = {
-    enable = true;
-    configDir = null;
-    extraPackages = [ pkgs.libsoup_3 ];
-  };
+
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;

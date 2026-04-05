@@ -11,7 +11,6 @@
     modesetting.enable = true;
 
     powerManagement.enable = false;
-    powerManagement.finegrained = true;
 
     open = false;
 

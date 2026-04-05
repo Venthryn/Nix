@@ -8,6 +8,13 @@
 
   # ----- Networking ----- #
   networking.networkmanager.enable = true;
+  networking.firewall = rec {
+    allowedTCPPortRanges = [ { from = 1714 ; to = 1764; } ];
+    allowedUDPPortRanges = [ { from = 1714 ; to = 1764; } ];
+
+    allowedTCPPorts = [ 7777 ];
+    allowedUDPPorts = [ 7777 ];
+  };
 
   # ----- Localization ----- #
   time.timeZone = "Australia/Melbourne";
@@ -23,6 +30,10 @@
     LC_TELEPHONE = "en_AU.UTF-8";
     LC_TIME = "en_AU.UTF-8";
   };
+
+  # ----- FHS Compatibility ----- #
+  services.envfs.enable = true;
+  programs.nix-ld.enable = true;
 
   # ----- printing ----- #
   services.printing.enable = true;
@@ -48,10 +59,17 @@
     wget
     curl
     git
-    vim
-    home-manager
+    neovim
+    gcc
   ];
-  
+
+  # ----- Services ----- #
+  services.ollama = {
+    enable = true;
+    loadModels = [ "llama3.2:3b" ]; # Move out of base
+  };
+  services.openssh.enable = true;
+ 
   # ----- Fonts ----- #
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -64,9 +82,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     initialPassword = "asdf";
   };
-  
-  # ----- ssh ----- #
-  services.openssh.enable = true;
 
   # ----- System ----- #
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

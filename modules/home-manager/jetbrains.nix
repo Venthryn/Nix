@@ -1,4 +1,4 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs.jetbrains; [ clion pycharm-professional rider ];
+  home.packages = with pkgs.jetbrains; [ clion ];
 }
