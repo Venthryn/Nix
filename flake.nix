@@ -25,10 +25,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware/master";
+    };
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, dms, stylix, plasma-manager, nvimConfig, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, dms, stylix, plasma-manager, nvimConfig, nixos-hardware, ... }@inputs:
     let inherit (nixpkgs) lib;
     in {
       nixosConfigurations = {
@@ -41,6 +44,12 @@
           system = "x86_64-linux";
           modules = [ ./nixos/systems/Desktop/configuration.nix ];
           specialArgs = { inherit inputs; };
+        };
+        Tablet = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ nixos-hardware.nixosModules.microsoft-surface-common 
+		      ./nixos/systems/Tablet/configuration.nix
+	            ];
         };
         Server = lib.nixosSystem {
           system = "x86_64-linux";
