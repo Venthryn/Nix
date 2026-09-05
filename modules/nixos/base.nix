@@ -7,7 +7,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # ----- Networking ----- #
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.powersave = false;
+  };
+  services.resolved.enable = true;
   networking.firewall = rec {
     allowedTCPPortRanges = [ { from = 1714 ; to = 1764; } ];
     allowedUDPPortRanges = [ { from = 1714 ; to = 1764; } ];
@@ -38,6 +42,16 @@
   # ----- printing ----- #
   services.printing.enable = true;
 
+
+  # Enable drivers for HP printers
+  services.printing.drivers = [ pkgs.hplipWithPlugin ];
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   # ----- audio ----- #
   security.rtkit.enable = true;
   services.pipewire = {
@@ -64,10 +78,6 @@
   ];
 
   # ----- Services ----- #
-  services.ollama = {
-    enable = true;
-    loadModels = [ "llama3.2:3b" ]; # Move out of base
-  };
   services.openssh.enable = true;
  
   # ----- Fonts ----- #
@@ -86,6 +96,34 @@
   # ----- System ----- #
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.power-profiles-daemon.enable = true;
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 40;
+    priority = 100;
+  };
+
+  systemd.oomd = {
+    enable = true;
+    enableRootSlice = true;
+    enableSystemSlice = true;
+    enableUserSlices = true;
+  };
+
+  services.earlyoom = {
+    enable = true;
+    freeMemThreshold = 5;
+    freeSwapThreshold = 5;
+    extraArgs = [ "--prefer" "^(UnrealEditor|ollama|firefox|electron)" ];
+  };
+
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 180;
+    "vm.page-cluster" = 0;
+    "vm.watermark_scale_factor" = 125;
+    "kernel.sysrq" = 1;
+  };
 
   # ----- Version ----- #
   system.stateVersion = "25.05";

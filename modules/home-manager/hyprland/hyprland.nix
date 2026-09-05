@@ -39,14 +39,13 @@
       };
       animations = { enabled = "yes"; };
       dwindle = {
-        pseudotile = true;
         preserve_split = true;
       };
       input = {
         touchpad.natural_scroll = true;
         kb_layout = "au";
         follow_mouse = 1;
-        sensitivity = -0.25;
+        sensitivity = 0.00;
         accel_profile = "flat";
       };
       gesture = "3, horizontal, workspace";
@@ -58,7 +57,6 @@
         "$mod, F, exec, $browser"
         "$mod, V, togglefloating"
         "$mod, P, pin"
-        "$mod, J, togglesplit"
 
         "$mod, h, movefocus, l"
         "$mod, l, movefocus, r"

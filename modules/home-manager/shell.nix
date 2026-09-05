@@ -5,9 +5,15 @@
     enable = true;
     initExtra = ''
       eval "$(pay-respects zsh)"
-      if [[ -n "$FLAKE_NAME" ]]; then
-        RPROMPT="%F{blue}[ 󱄅 $FLAKE_NAME ]%f"
-      fi
+      autoload -Uz add-zsh-hook
+      set_nix_prompt() {
+        if [[ -n "$name" && "$name" != "shell" ]]; then
+          RPROMPT="%F{blue}[    $name ]%f"
+        else
+          RPROMPT=""
+        fi
+      }
+      add-zsh-hook precmd set_nix_prompt
     '';
     shellAliases = {
       ll = "ls -l";
@@ -15,6 +21,7 @@
       gl = "git log";
       ga = "git add";
       gc = "git commit";
+      "nix develop" = "nix develop -c zsh";
     };
     oh-my-zsh = {
       enable = true;
@@ -22,5 +29,4 @@
       theme = "robbyrussell";
     };
   };
-
 }

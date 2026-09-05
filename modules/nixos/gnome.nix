@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # 1. Enable GNOME and the Display Manager
@@ -9,7 +9,6 @@
   };
 
   # 2. Flatpak & Portal Integration
-  # Essential for the "Atomic" app management style
   services.flatpak.enable = true;
   xdg.portal = {
     enable = true;
@@ -18,7 +17,6 @@
   };
 
   # 3. GUI Management Tools
-  # These help you manage your "mutable" user space
   environment.systemPackages = with pkgs; [
     gnome-shell-extensions
     gnome-tweaks
@@ -28,21 +26,21 @@
     firefox
     adwaita-icon-theme # Ensures icons show up in non-GTK apps
     steam-run-free
+    graphite-cursors
   ];
 
   # 4. Sane Defaults via Dconf
-  # Sets the "Fresh Experience" for any new user.
-  # Venthryn can change these in the settings and it will persist.
   programs.dconf.profiles.user.databases = [{
     settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
         enable-hot-corners = false;
         clock-show-weekday = true;
-        # Uses the font defined in your base.nix
         font-name = "JetBrainsMono Nerd Font 11";
         document-font-name = "JetBrainsMono Nerd Font 11";
         monospace-font-name = "JetBrainsMono Nerd Font 10";
+        cursor-theme = "graphite-dark";
+        cursor-size = lib.gvariant.mkInt32 100;
       };
       "org/gnome/mutter" = {
         edge-tiling = true;
@@ -64,5 +62,6 @@
     totem
     tali iagno hitori atomix # Games
     decibels
+    gnome-console
   ];
 }

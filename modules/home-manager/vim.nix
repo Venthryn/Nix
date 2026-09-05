@@ -2,7 +2,9 @@
 
 
   home.packages = with pkgs; [
+    neovide
     gcc
+    nodejs
     clang-tools
     jdt-language-server
     lua-language-server

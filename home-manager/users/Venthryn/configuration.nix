@@ -3,8 +3,6 @@
     ../../../modules/home-manager/shell.nix
     ../../../modules/home-manager/kitty.nix
     ../../../modules/home-manager/vim.nix
-    ../../../modules/home-manager/stylix.nix
-    ../../../modules/home-manager/hyprland
   ];
 
 

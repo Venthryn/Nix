@@ -21,11 +21,6 @@
 
 
   ];
-  programs.ags = {
-    enable = true;
-    configDir = null;
-    extraPackages = [ pkgs.libsoup_3 ];
-  };
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;
