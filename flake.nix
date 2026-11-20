@@ -55,6 +55,14 @@
           modules = [ ./home-manager/users/Venthryn/configuration.nix ];
           extraSpecialArgs = { inherit inputs; };
         };
+        "University" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { 
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+          modules = [ ./home-manager/users/University/configuration.nix ];
+          extraSpecialArgs = { inherit inputs; };
+        };
       };
     };
 }

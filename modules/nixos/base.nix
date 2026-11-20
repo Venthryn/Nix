@@ -39,6 +39,12 @@
   services.envfs.enable = true;
   programs.nix-ld.enable = true;
 
+  # ----- Directory Environments ----- #
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   # ----- printing ----- #
   services.printing.enable = true;
 
@@ -67,7 +73,7 @@
   };
 
   
-  # ----- packages ----- #
+  # ----- core packages ----- #
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     wget
@@ -85,11 +91,18 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  # ----- User ----- #
+  # ----- Users ----- #
   users.users.Venthryn = {
     isNormalUser = true;
     description = "Bailey Vogt";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    initialPassword = "asdf";
+  };
+
+  users.users.University = {
+    isNormalUser = true;
+    description = "University";
+    extraGroups = [ "networkmanager" "docker" ];
     initialPassword = "asdf";
   };
 

@@ -1,4 +1,5 @@
-{
+{ pkgs, ... }: {
+
   imports = [
     ../../../modules/home-manager/shell.nix
     ../../../modules/home-manager/kitty.nix
@@ -11,4 +12,10 @@
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
+
+  programs.firefox = {
+    enable = true;
+    configPath = ".mozilla/firefox";
+  }
+
 }

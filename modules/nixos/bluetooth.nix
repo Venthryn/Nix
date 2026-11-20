@@ -9,14 +9,6 @@
       };
     };
   };
-
-
-
   # Enable blueman service
   services.blueman.enable = true;
-
-
-
-
-
 }

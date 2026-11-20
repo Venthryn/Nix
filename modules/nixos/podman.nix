@@ -1,12 +1,9 @@
 { pkgs, ... }:
 {
-
   environment.systemPackages = with pkgs; [
     podman-tui
     podman-compose
   ];
-
-
 
   virtualisation.containers.enable = true;
   virtualisation = {
