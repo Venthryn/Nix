@@ -27,6 +27,10 @@ in
 {
   dconf.settings = {
 
+    "org/gnome/settings-daemon/plugins/housekeeping" = {
+      donation-reminder-enabled = false;
+    };
+
     "org/gnome/desktop/interface" = {
       accent-color = "red";
       clock-format = "24h";
