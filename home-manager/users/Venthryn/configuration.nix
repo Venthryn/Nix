@@ -4,6 +4,7 @@
     ../../../modules/home-manager/shell.nix
     ../../../modules/home-manager/kitty.nix
     ../../../modules/home-manager/vim.nix
+    ../../../modules/home-manager/gnome.nix
   ];
 
 
