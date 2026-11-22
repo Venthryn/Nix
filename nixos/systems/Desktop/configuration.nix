@@ -11,6 +11,7 @@
     ../../../modules/nixos/tailscale.nix
     ../../../modules/nixos/winboat.nix
     ../../../modules/nixos/unreal.nix
+    ../../../modules/nixos/ghostty.nix
   ];
 
 

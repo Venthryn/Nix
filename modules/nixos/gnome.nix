@@ -20,8 +20,6 @@
     gnome-shell-extensions
     gnome-tweaks
     dconf-editor
-    # Terminal
-    blackbox-terminal
     # Theming
     adwaita-icon-theme
     graphite-cursors
@@ -54,5 +52,6 @@
     tali iagno hitori atomix
     decibels
     gnome-console
+    epiphany
   ];
 }
