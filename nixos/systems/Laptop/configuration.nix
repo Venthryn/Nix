@@ -11,6 +11,8 @@
 
   networking.hostName = "Laptop";
 
+  services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+
   # Regenerate if GPU offload breaks after an update:
   #   lspci -D | grep -E 'VGA|3D' # then convert hex bus to decimal
   hardware.nvidia.prime = {

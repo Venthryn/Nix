@@ -5,12 +5,12 @@
     enable32Bit = true;
   };
 
-  services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     modesetting.enable = true;
 
-    powerManagement.enable = false;
+    powerManagement.enable = true;
 
     open = false;
 
@@ -18,4 +18,7 @@
 
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+    systemd.services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
+
 }
