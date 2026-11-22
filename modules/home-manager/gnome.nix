@@ -80,60 +80,17 @@ in
       tls-key = "/home/Venthryn/.local/share/gnome-remote-desktop/certificates/rdp-tls.key";
     };
 
-    "org/gnome/desktop/app-folders" = {
-      folder-children = [ "System" "Utilities" "Games" "Office" "LibreOffice" "SoundVideo" "Accessories" ];
-    };
-
-    "org/gnome/desktop/app-folders/folders/System" = {
-      apps = [ "org.gnome.baobab.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.Logs.desktop" "org.gnome.SystemMonitor.desktop" "org.gnome.tweaks.desktop" ];
-      name = "X-GNOME-Shell-System.directory";
-      translate = true;
-    };
-
-    "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = [ "org.gnome.Decibels.desktop" "org.gnome.Connections.desktop" "org.gnome.Papers.desktop" "org.gnome.font-viewer.desktop" "org.gnome.Loupe.desktop" "org.gnome.Music.desktop" ];
-      name = "X-GNOME-Shell-Utilities.directory";
-      translate = true;
-    };
-
-    "org/gnome/desktop/app-folders/folders/Games" = {
-      name = "Games";
-      apps = [ "com.play0ad.zeroad.desktop" "org.widelands.Widelands.desktop" "page.kramo.Cartridges.desktop" "com.valvesoftware.Steam.desktop" ];
-    };
-
-    "org/gnome/desktop/app-folders/folders/Office" = {
-      name = "Office";
-      apps = [ "md.obsidian.Obsidian.desktop" "com.github.IsmaelMartinez.teams_for_linux.desktop" "com.usebottles.bottles.desktop" ];
-    };
-
-    "org/gnome/desktop/app-folders/folders/LibreOffice" = {
-      name = "Office"; # same display name as the folder above — rename one if you like
-      apps = [ "org.libreoffice.LibreOffice.math.desktop" "org.libreoffice.LibreOffice.writer.desktop" "org.libreoffice.LibreOffice.impress.desktop" "org.libreoffice.LibreOffice.draw.desktop" "org.libreoffice.LibreOffice.calc.desktop" "org.libreoffice.LibreOffice.base.desktop" "org.libreoffice.LibreOffice.desktop" ];
-    };
-
-    "org/gnome/desktop/app-folders/folders/SoundVideo" = {
-      name = "Sound & Video";
-      apps = [ "io.bassi.Amberol.desktop" "org.gnome.Showtime.desktop" "com.rafaelmardojai.Blanket.desktop" ];
-    };
-
-    "org/gnome/desktop/app-folders/folders/Accessories" = {
-      name = "Accessories";
-      apps = [ "org.gnome.World.Iotas.desktop" "org.gnome.Builder.desktop" "page.kramo.Sly.desktop" "org.gnome.gitlab.somas.Apostrophe.desktop" "io.github.alainm23.planify.desktop" "io.github.mrvladus.List.desktop" ];
-    };
-
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
         "gsconnect@andyholmes.github.io"
         "tilingshell@ferrarodomenico.com"
         "search-light@icedman.github.com"
-        "auto-adwaita-colors@celiopy"
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         "blur-my-shell@aunetx"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "caffeine@patapon.info"
       ];
-      favorite-apps = [ "firefox.desktop" "com.raggesilver.BlackBox.desktop" "neovide.desktop" "org.gnome.Calendar.desktop" "org.gnome.TextEditor.desktop" "org.gnome.Nautilus.desktop" ];
     };
 
     "org/gnome/shell/extensions/gsconnect".enabled = true;
@@ -154,7 +111,7 @@ in
 
     "org/gnome/shell/extensions/tilingshell" = {
       edge-tiling-mode = "adaptive";
-      enable-autotiling = true;
+      enable-autotiling = false;
       enable-blur-selected-tilepreview = true;
       enable-blur-snap-assistant = true;
       enable-screen-edges-windows-suggestions = true;
@@ -172,7 +129,6 @@ in
       span-window-up = [ "<Shift><Super>j" ];
       span-window-down = [ "<Shift><Super>k" ];
       span-window-right = [ "<Shift><Super>l" ];
-      selected-layouts = [ [ "Layout 4" "24915598" ] [ "Layout 4" "Layout 1" ] ];
       layouts-json = "[{\"id\":\"Layout 1\",\"tiles\":[{\"x\":0,\"y\":0,\"width\":0.22,\"height\":0.5,\"groups\":[1,2]},{\"x\":0,\"y\":0.5,\"width\":0.22,\"height\":0.5,\"groups\":[1,2]},{\"x\":0.22,\"y\":0,\"width\":0.56,\"height\":1,\"groups\":[2,3]},{\"x\":0.78,\"y\":0,\"width\":0.22,\"height\":0.5,\"groups\":[3,4]},{\"x\":0.78,\"y\":0.5,\"width\":0.22,\"height\":0.5,\"groups\":[3,4]}]},{\"id\":\"Layout 2\",\"tiles\":[{\"x\":0,\"y\":0,\"width\":0.22,\"height\":1,\"groups\":[1]},{\"x\":0.22,\"y\":0,\"width\":0.56,\"height\":1,\"groups\":[1,2]},{\"x\":0.78,\"y\":0,\"width\":0.22,\"height\":1,\"groups\":[2]}]},{\"id\":\"Layout 3\",\"tiles\":[{\"x\":0,\"y\":0,\"width\":0.33,\"height\":1,\"groups\":[1]},{\"x\":0.33,\"y\":0,\"width\":0.67,\"height\":1,\"groups\":[1]}]},{\"id\":\"Layout 4\",\"tiles\":[{\"x\":0,\"y\":0,\"width\":0.67,\"height\":1,\"groups\":[1]},{\"x\":0.67,\"y\":0,\"width\":0.33,\"height\":1,\"groups\":[1]}]},{\"id\":\"24915598\",\"tiles\":[{\"x\":0,\"y\":0,\"width\":0.5,\"height\":1,\"groups\":[1]},{\"x\":0.5,\"y\":0,\"width\":0.5000000000000058,\"height\":1,\"groups\":[1]}]}]";
     };
 
